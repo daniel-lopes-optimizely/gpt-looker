@@ -3,7 +3,7 @@ import json
 from webbrowser import Chrome
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
-from langchain.schema import BaseLanguageModel
+from langchain.base_language import BaseLanguageModel
 
 
 class QueryConverter:
