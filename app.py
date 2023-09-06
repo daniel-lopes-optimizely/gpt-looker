@@ -9,7 +9,7 @@ from langchain.llms import OpenAI
 import looker_sdk
 from indexer import Indexer
 from looker_query_runner import LookerQueryRunner
-
+from langchain.vectorstores import Chroma
 from query_converter import QueryConverter
 
 sdk = looker_sdk.init40("looker.ini")
@@ -24,7 +24,7 @@ llm = OpenAI(model_name="text-davinci-003", temperature=0)
 
 
 @st.cache_resource
-def create_index():
+def create_index() -> Chroma:
     loader = DirectoryLoader(lookml_dir)
     docs = loader.load()
 

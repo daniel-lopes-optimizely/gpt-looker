@@ -14,7 +14,7 @@ class Indexer:
         self.llm = llm
         self.docs = docs
 
-    def run(self):
+    def run(self) -> Chroma:
         # Register the text into the Chroma index
         text_splitter = LkmlTextSplitter(chunk_size=3000)
         texts = text_splitter.split_documents(self.docs)
